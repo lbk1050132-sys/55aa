@@ -1,0 +1,23 @@
+{
+    "name": "ROS 2 RealSense Env",
+    "build": { "dockerfile": "../Dockerfile" },
+    "runArgs": [
+        "--net=host",
+        "--privileged",
+        "-v", "/dev:/dev",
+        "-e", "DISPLAY=${localEnv:DISPLAY}",
+        "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+        "--gpus", "all",                 // 加入這行：把所有 GPU 分配給容器
+        "-e", "NVIDIA_DRIVER_CAPABILITIES=all" // 加入這行：開放顯示與運算能力
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-iot.vscode-ros",
+                "ms-vscode.cpptools"
+            ]
+        }
+    },
+    "postCreateCommand": "echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc",
+    "remoteUser": "root"
+}

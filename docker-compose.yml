@@ -1,0 +1,12 @@
+services:
+  realsense:
+    build: .
+    container_name: realsense_node
+    network_mode: host
+    privileged: true
+    environment:
+      - ROS_DOMAIN_ID=55
+    volumes:
+      - /dev:/dev
+    # 預設啟動相機節點
+    command: bash -c "source /opt/ros/humble/setup.bash && ros2 launch realsense2_camera rs_launch.py"

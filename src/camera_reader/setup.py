@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'read_image = camera_reader.image_subscriber:main'
         ],
     },
 )

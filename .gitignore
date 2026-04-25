@@ -1,5 +1,21 @@
-build/
-install/
-log/
-__pycache__/
-*.pyc
+# IDE
+.vscode
+
+# ROS 2
+/build/
+/install/
+/log/
+
+# ROS 2 overlay
+colcon_cd.sh
+local_setup.*
+setup.*
+
+# ROS bag
+*.db3
+*.bag
+*.bag.active
+*.bag~*
+
+# Launch
+*.launch.pyc
